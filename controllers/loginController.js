@@ -9,6 +9,7 @@ const loginController = async (req, res) => {
         const user = await User.login(email, password);
 
         req.session.userId = user.id;
+        req.session.userRole = user.role;
 
         res.status(200).json({
             message: "Login Sucessful"
