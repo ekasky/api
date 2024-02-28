@@ -101,7 +101,7 @@ User.login = async (email, password) => {
   const passwordMatch = await bcrypt.compare(password, user.password);
 
   // Throw error if password is incorrect
-  if(!user) {
+  if(!passwordMatch) {
     throw new Error("Email or Password invalid");
   }
 
