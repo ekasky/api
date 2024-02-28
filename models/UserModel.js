@@ -81,4 +81,32 @@ User.signup = async (first_name, last_name, username, email, password) => {
 
 }
 
+// User login method
+User.login = async (email, password) => {
+
+  // Ensure email and passwors fields are supplied
+  if(!email || !password) {
+    throw new Error("All feilds required");
+  }
+
+  // Attempt to find user in users table
+  const user = await User.findOne({where: {email}});
+
+  // Throw error if we dont have a user on record
+  if(!user) {
+    throw new Error("Email or Password invalid");
+  }
+
+  // Ensure Password is correct
+  const passwordMatch = await bcrypt.compare(password, user.password);
+
+  // Throw error if password is incorrect
+  if(!user) {
+    throw new Error("Email or Password invalid");
+  }
+
+  return user;
+
+}
+
 module.exports = User;
