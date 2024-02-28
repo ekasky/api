@@ -2,6 +2,7 @@ const sequelize = require("../utils/sequelize");
 const { Sequelize, DataTypes } = require("sequelize");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
+const ROLES_LIST = require("../utils/roles_list");
 
 
 const User = sequelize.define("User", {
@@ -32,6 +33,11 @@ const User = sequelize.define("User", {
     last_name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    role: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: ROLES_LIST.User
     }
   }, {
     // Additional model options
