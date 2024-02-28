@@ -1,6 +1,7 @@
 const ROLES_LIST = require("../utils/roles_list");
+const User = require("../models/UserModel");
 
-const changeRollController = (req, res) => {
+const changeRollController = async (req, res) => {
 
     const { email, role } = req.body;
 
@@ -17,6 +18,17 @@ const changeRollController = (req, res) => {
             message: "Invalid role"
         });
     }
+
+    // See if user exists in database
+    const user = await User.findOne({where: {email}});
+
+    if(!user) {
+        return res.status(400).json({
+            message: "Invalid user"
+        });
+    }
+
+    
 
     res.json({
         message: "TODO: Change user role"
