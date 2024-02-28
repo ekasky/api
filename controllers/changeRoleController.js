@@ -28,10 +28,14 @@ const changeRollController = async (req, res) => {
         });
     }
 
-    
+    // Update users role
+    user.role = ROLES_LIST[role];
+    await user.save();
 
     res.json({
-        message: "TODO: Change user role"
+        message: "User role updated successfully",
+        email,
+        role
     });
 
 }
