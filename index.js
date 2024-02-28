@@ -1,7 +1,8 @@
 const express = require("express");
+const { server_port } = require("./utils/config");
 const app = express();
 
 app.use(express.json());
 
 
-app.listen(4000, () => console.log(`Listening on port 4000`));
+app.listen(server_port, () => console.log(`Listening on port ${server_port}`));
