@@ -16,7 +16,10 @@ const express_session = session({
     store: sessionStore,
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 1000}
+    cookie: {
+        maxAge: 1000,
+        httpOnly: true,
+    }
 
 });
 
