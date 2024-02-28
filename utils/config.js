@@ -8,6 +8,7 @@ module.exports = {
     db_user: process.env.DB_USER,
     db_pass: process.env.DB_PASS,
     db_host: process.env.DB_HOST,
-    db_dialect: "mysql"
+    db_dialect: "mysql",
+    db_session_secret: process.env.DB_SESSION_SECRET
 
 };
