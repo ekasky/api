@@ -10,6 +10,6 @@ module.exports = {
     db_host: process.env.DB_HOST,
     db_dialect: "mysql",
     db_session_secret: process.env.DB_SESSION_SECRET,
-    db_session_expire_time: 60000                                                               // One minute
+    db_session_expire_time: 60000 * 60                                                               // One hour
 
 };
