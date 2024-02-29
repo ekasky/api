@@ -2,7 +2,7 @@
 
 const logoutController = (req, res) => {
 
-    if(req.session) {
+    if(req.session.userId) {
 
         req.session.destroy(err => {
 
@@ -13,6 +13,10 @@ const logoutController = (req, res) => {
             }
 
             res.clearCookie("auth");
+
+            res.status(200).json({
+                message: "Logged Out Successfully"
+            });
 
         });
 
