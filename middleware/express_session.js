@@ -22,7 +22,7 @@ const express_session = session({
     cookie: {
         maxAge:  db_session_expire_time,
         httpOnly: true,
-        sameSite: true
+        sameSite: "strict"
     }
 
 });
